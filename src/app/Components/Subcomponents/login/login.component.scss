@@ -1,0 +1,89 @@
+// login.component.scss
+.login-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  height: 100vh;
+  background-color: rgba(255, 255, 255, 0.8);
+  /* Gläserner Hintergrund */
+  backdrop-filter: blur(10px);
+  /* Weichzeichner-Effekt für den Hintergrund */
+  padding: 20px;
+
+  #password,
+  #username {
+    background-color: rgba(211, 211, 211, 0.747);
+  }
+
+  #password:invalid,
+  #username:invalid {
+    border: 2px solid red;
+  }
+
+  h1 {
+    font-size: 24px;
+    margin-bottom: 20px;
+  }
+
+  .form-group {
+    margin-bottom: 15px;
+    width: 100%;
+
+    label {
+      font-size: 14px;
+      color: #333;
+    }
+
+    input {
+      width: 100%;
+      padding: 10px;
+      border: 1px solid #ccc;
+      border-radius: 5px;
+      font-size: 14px;
+    }
+  }
+
+  .btn-login {
+    background-color: #007bff;
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    padding: 10px 20px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+
+    &:hover {
+      background-color: #0056b3;
+    }
+  }
+
+  .btn-registrierung {
+    background-color: #1aa51a;
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    padding: 10px 20px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+
+    &:hover {
+      background-color: #1aa51a91;
+    }
+  }
+
+  .animated-button {
+    animation: pulse 1s infinite alternate;
+    /* Beispielanimation */
+  }
+
+  @keyframes pulse {
+    0% {
+      transform: scale(1);
+    }
+
+    100% {
+      transform: scale(1.1);
+    }
+  }
+}

@@ -1,0 +1,8 @@
+<div class="dropdown">
+  <button (click)="toggleDropdown()" class="dropdown-button">
+    {{ selectedValue }}
+  </button>
+  <div *ngIf="showDropdown" class="dropdown-content">
+    <a *ngFor="let option of options" [routerLink]="option.link">{{ option.name }}</a>
+  </div>
+</div>

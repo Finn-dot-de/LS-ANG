@@ -1,0 +1,24 @@
+<div class="quiz-body">
+  <div *ngFor="let item of items; let i = index" class="quiz-item">
+    <h2>{{ item.frage }}</h2>
+    <ul>
+      <li
+        *ngFor="let antwort of item.antworten; let j = index"
+        [class.checked]="antwort.istAusgewaehlt && !showResults"
+        [class.correct]="
+          antwort.istAusgewaehlt && antwort.istKorrekt && showResults
+        "
+        [class.incorrect]="
+          antwort.istAusgewaehlt && !antwort.istKorrekt && showResults
+        "
+        class="quiz-answer"
+        (click)="selectAnswer(antwort)"
+      >
+        <label class="checkbox_label">{{ antwort.antwort }}</label>
+        <br />
+      </li>
+      <br />
+    </ul>
+  </div>
+  <button class="check-button" (click)="checkAnswers()">Überprüfen</button>
+</div>
