@@ -3,17 +3,10 @@ import { AuthService } from './auth.service';
 
 @Component({
   selector: 'app-root',
-  template: `
-    <app-header *ngIf="isLoggedIn"></app-header>
-    <app-login *ngIf="!isLoggedIn"></app-login>
-    <app-quizbereich></app-quizbereich>
-    <router-outlet *ngIf="isLoggedIn"></router-outlet>
-    <app-footer *ngIf="isLoggedIn"></app-footer>
-  `,
+ templateUrl: './app.component.html',
 })
 export class AppComponent {
-  isLoggedIn = true;
-  title = "LernStoffAnwendung"
+  isLoggedIn = true
 
   constructor(private authService: AuthService) {
     this.isLoggedIn = this.authService.getLoginStatus();

@@ -1,5 +1,4 @@
 <app-header *ngIf="isLoggedIn"></app-header>
 <app-login *ngIf="!isLoggedIn"></app-login>
-<app-quizbereich></app-quizbereich>
 <router-outlet *ngIf="isLoggedIn"></router-outlet>
 <app-footer *ngIf="isLoggedIn"></app-footer>
