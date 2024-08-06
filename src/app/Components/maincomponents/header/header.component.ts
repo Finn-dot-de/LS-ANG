@@ -1,6 +1,8 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { DropdownComponent } from '../dropdown/dropdown.component';
 import { AuthService } from 'src/app/auth.service';
+import { FachService } from 'src/app/fach.service';
+import { Fach } from 'src/app/fach.model';  // Importieren Sie die Schnittstelle
 
 @Component({
   selector: 'app-header',
@@ -9,14 +11,8 @@ import { AuthService } from 'src/app/auth.service';
   styleUrls: ['./header.component.scss'],
   imports: [DropdownComponent],
 })
-export class HeaderComponent {
-  options1 = [
-    { name: 'AWP', link: '/awp' },
-    { name: 'PlusD', link: '/plusd' },
-    { name: 'ITs', link: '/its' },
-    { name: 'ITTk', link: '/ittk' },
-    { name: 'ITTa / ITTab', link: '/itta-ittab' },
-  ];
+export class HeaderComponent implements OnInit {
+  options1: { name: string, link: string }[] = [];
   options2 = [
     { name: 'Schnellübung', link: '/schnelluebung' },
     { name: 'Normale Übung', link: '/normaluebungen' },
@@ -34,7 +30,20 @@ export class HeaderComponent {
   selectedValue2 = 'Übungen';
   selectedValue3 = 'Lernfortschritt';
 
-  constructor(private authService: AuthService) { }
+  constructor(private authService: AuthService, private fachService: FachService) { }
+
+  ngOnInit() {
+    this.loadFeacher();
+  }
+
+  loadFeacher() {
+    this.fachService.getFeacher().subscribe((data: Fach[]) => {
+      this.options1 = data.map((fach: Fach) => ({
+        name: fach.fach,
+        link: `/${fach.fach.replace(/ /g, '').toLowerCase()}`
+      }));
+    });
+  }
 
   logout() {
     this.authService.setLoginStatus(false);

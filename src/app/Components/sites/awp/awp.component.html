@@ -1,1 +1,20 @@
-
+<!-- awp.component.html -->
+<div class="container">
+  <header>
+    <h1>Willkommen zum Programmieren lernen!</h1>
+  </header>
+  <main>
+    <section class="intro">
+      <p>Diese Seite hilft dir, die Grundlagen des Programmierens zu verstehen und zu lernen.</p>
+    </section>
+    <section class="content">
+      <h2>Kurse</h2>
+      <ul>
+        <li *ngFor="let course of courses">{{ course }}</li>
+      </ul>
+    </section>
+  </main>
+  <footer>
+    <p>&copy; 2024 Programmieren Lernen</p>
+  </footer>
+</div>
