@@ -1,17 +1,18 @@
+// fach.service.ts
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { Observable } from 'rxjs';
-import { Fach } from './fach.model';  // Importieren Sie die Schnittstelle
+import { Fach } from './fach.model';  // Import der Schnittstelle
 
 @Injectable({
   providedIn: 'root'
 })
 export class FachService {
-  private apiUrl = '/api/feacher';
+  private apiUrl = '/api/faecher';  // API-URL anpassen
 
   constructor(private http: HttpClient) { }
 
-  getFeacher(): Observable<Fach[]> {
+  getFaecher(): Observable<Fach[]> {
     return this.http.get<Fach[]>(this.apiUrl);
   }
 }

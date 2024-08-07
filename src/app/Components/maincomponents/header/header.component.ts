@@ -1,8 +1,11 @@
+// header.component.ts
 import { Component, OnInit } from '@angular/core';
 import { DropdownComponent } from '../dropdown/dropdown.component';
 import { AuthService } from 'src/app/auth.service';
 import { FachService } from 'src/app/fach.service';
-import { Fach } from 'src/app/fach.model';  // Importieren Sie die Schnittstelle
+import { Fach } from 'src/app/fach.model';  // Import der Schnittstelle
+import { catchError } from 'rxjs/operators';
+import { of } from 'rxjs';
 
 @Component({
   selector: 'app-header',
@@ -33,15 +36,25 @@ export class HeaderComponent implements OnInit {
   constructor(private authService: AuthService, private fachService: FachService) { }
 
   ngOnInit() {
-    this.loadFeacher();
+    this.loadFaecher();
   }
 
-  loadFeacher() {
-    this.fachService.getFeacher().subscribe((data: Fach[]) => {
-      this.options1 = data.map((fach: Fach) => ({
-        name: fach.fach,
-        link: `/${fach.fach.replace(/ /g, '').toLowerCase()}`
-      }));
+  loadFaecher() {
+    this.fachService.getFaecher().pipe(
+      catchError(error => {
+        console.error('Fehler beim Laden der Fächer:', error);
+        return of([]); // Gibt eine leere Liste zurück, um Fehler zu handhaben
+      })
+    ).subscribe({
+      next: (data: Fach[]) => {
+        this.options1 = data.map(item => ({
+          name: item.fach,
+          link: `/${item.fach.replace(/ /g, '').toLowerCase()}`
+        }));
+      },
+      error: (error) => {
+        console.error('Fehler beim Laden der Fächer:', error);
+      }
     });
   }
 
