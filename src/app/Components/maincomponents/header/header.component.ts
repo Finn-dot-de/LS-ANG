@@ -1,9 +1,9 @@
 // header.component.ts
 import { Component, OnInit } from '@angular/core';
 import { DropdownComponent } from '../dropdown/dropdown.component';
-import { AuthService } from 'src/app/auth.service';
-import { FachService } from 'src/app/fach.service';
-import { Fach } from 'src/app/fach.model';  // Import der Schnittstelle
+import { AuthService } from 'src/app/Components/Services/AuthService/auth.service';
+import { FachService } from 'src/app/Components/Services/FächerService/fach.service';
+import { Fach } from 'src/app/Components/Services/FächerService/fach.model';  // Import der Schnittstelle
 import { catchError } from 'rxjs/operators';
 import { of } from 'rxjs';
 
