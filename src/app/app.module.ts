@@ -2,12 +2,12 @@ import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
-import { FooterComponent } from './Components/maincomponents/footer/footer.component';
-import { HeaderComponent } from './Components/maincomponents/header/header.component';
-import { LoginComponent } from './Components/Subcomponents/login/login.component';
 import { FormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
-import { QuizbereichComponent } from './Components/maincomponents/quizbereich/quizbereich.component';
+import { FooterComponent } from "./Components/Main-Components/footer/footer.component";
+import { LoginComponent } from "./Components/Sub-Components/login/login.component";
+import { HeaderComponent } from "./Components/Main-Components/header/header.component";
+import {QuizbereichComponent} from "./Components/Main-Components/quizbereich/quizbereich.component";
 
 @NgModule({
     declarations: [

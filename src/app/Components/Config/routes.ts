@@ -11,7 +11,7 @@ import {LangzeitComponent} from "../sites/Statistik/langzeit/langzeit.component"
 import {NochzuebenComponent} from "../sites/Statistik/nochzueben/nochzueben.component";
 import {EigeneuebungenComponent} from "../sites/LernSeiten/eigeneuebungen/eigeneuebungen.component";
 import {NormaluebungenComponent} from "../sites/LernSeiten/normaluebungen/normaluebungen.component";
-import {LoginComponent} from "../Subcomponents/login/login.component";
+import { LoginComponent } from "../Sub-Components/login/login.component";
 
 export const routes: Routes = [
   {path: 'awp', component: AwpComponent},
