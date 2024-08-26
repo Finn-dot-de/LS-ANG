@@ -1,6 +1,5 @@
 import { Component, OnInit } from '@angular/core';
 import { DropdownComponent } from '../dropdown/dropdown.component';
-import { AuthService } from 'src/app/Components/Services/AuthService/auth.service';
 import { FachService } from 'src/app/Components/Services/FächerService/fach.service';
 import { Fach } from 'src/app/Components/Services/FächerService/fach.model';  // Import der Schnittstelle
 import { catchError } from 'rxjs/operators';
@@ -34,7 +33,11 @@ export class HeaderComponent implements OnInit {
   selectedValue2 = 'Übungen';
   selectedValue3 = 'Lernfortschritt';
 
+<<<<<<< HEAD
   constructor(private authService: AuthService, private fachService: FachService, private http: HttpClient) { }
+=======
+  constructor(private fachService: FachService) { }
+>>>>>>> 27292981fe9ba48a831d58cee868be451caaf4b4
 
   ngOnInit() {
     this.loadFaecher();
@@ -69,4 +72,11 @@ export class HeaderComponent implements OnInit {
       }
     });
   }
+<<<<<<< HEAD
+=======
+
+  logout() {
+    window.location.reload();
+  }
+>>>>>>> 27292981fe9ba48a831d58cee868be451caaf4b4
 }

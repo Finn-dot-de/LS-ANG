@@ -6,9 +6,5 @@ import { AuthService } from './Components/Services/AuthService/auth.service';
  templateUrl: './app.component.html',
 })
 export class AppComponent {
-  isLoggedIn = true
 
-  constructor(private authService: AuthService) {
-    this.isLoggedIn = this.authService.getLoginStatus();
-  }
 }

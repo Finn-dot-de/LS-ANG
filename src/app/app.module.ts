@@ -19,7 +19,11 @@ import {QuizbereichComponent} from "./Components/Main-Components/quizbereich/qui
         FormsModule,
         FooterComponent,
         HeaderComponent,
+<<<<<<< HEAD
         QuizbereichComponent,
+=======
+        QuizbereichComponent
+>>>>>>> 27292981fe9ba48a831d58cee868be451caaf4b4
     ],
     providers: [],
     bootstrap: [AppComponent]
