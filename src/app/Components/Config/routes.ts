@@ -11,7 +11,6 @@ import {LangzeitComponent} from "../sites/Statistik/langzeit/langzeit.component"
 import {NochzuebenComponent} from "../sites/Statistik/nochzueben/nochzueben.component";
 import {EigeneuebungenComponent} from "../sites/LernSeiten/eigeneuebungen/eigeneuebungen.component";
 import {NormaluebungenComponent} from "../sites/LernSeiten/normaluebungen/normaluebungen.component";
-import { LoginComponent } from "../Sub-Components/login/login.component";
 
 export const routes: Routes = [
   {path: 'awp', component: AwpComponent},
@@ -26,5 +25,4 @@ export const routes: Routes = [
   {path: 'nochzueben', component: NochzuebenComponent},
   {path: 'eigeneuebungen', component: EigeneuebungenComponent},
   {path: 'normaluebungen', component: NormaluebungenComponent},
-  {path: 'login', component: LoginComponent},
 ];

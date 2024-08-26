@@ -5,7 +5,6 @@ import { AppComponent } from './app.component';
 import { FormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
 import { FooterComponent } from "./Components/Main-Components/footer/footer.component";
-import { LoginComponent } from "./Components/Sub-Components/login/login.component";
 import { HeaderComponent } from "./Components/Main-Components/header/header.component";
 import {QuizbereichComponent} from "./Components/Main-Components/quizbereich/quizbereich.component";
 
@@ -20,7 +19,6 @@ import {QuizbereichComponent} from "./Components/Main-Components/quizbereich/qui
         FormsModule,
         FooterComponent,
         HeaderComponent,
-        LoginComponent,
         QuizbereichComponent
     ],
     providers: [],
