@@ -1,4 +1,3 @@
-// header.component.ts
 import { Component, OnInit } from '@angular/core';
 import { DropdownComponent } from '../dropdown/dropdown.component';
 import { AuthService } from 'src/app/Components/Services/AuthService/auth.service';
@@ -6,6 +5,7 @@ import { FachService } from 'src/app/Components/Services/FächerService/fach.ser
 import { Fach } from 'src/app/Components/Services/FächerService/fach.model';  // Import der Schnittstelle
 import { catchError } from 'rxjs/operators';
 import { of } from 'rxjs';
+import { HttpClient } from "@angular/common/http";
 
 @Component({
   selector: 'app-header',
@@ -15,6 +15,7 @@ import { of } from 'rxjs';
   imports: [DropdownComponent],
 })
 export class HeaderComponent implements OnInit {
+  logoutLink: string = '';  // Initialisiert mit einem leeren String
   options1: { name: string, link: string }[] = [];
   options2 = [
     { name: 'Schnellübung', link: '/schnelluebung' },
@@ -33,10 +34,21 @@ export class HeaderComponent implements OnInit {
   selectedValue2 = 'Übungen';
   selectedValue3 = 'Lernfortschritt';
 
-  constructor(private authService: AuthService, private fachService: FachService) { }
+  constructor(private authService: AuthService, private fachService: FachService, private http: HttpClient) { }
 
   ngOnInit() {
     this.loadFaecher();
+    // Abrufen des Links von der API
+    this.http.get<{url: string}>('/api/link')
+      .subscribe({
+        next: (response) => {
+          this.logoutLink = response.url;
+        },
+        error: (error) => {
+          console.error('Fehler beim Abrufen des Links:', error);
+          this.logoutLink = '#'; // Fallback, falls der API-Aufruf fehlschlägt
+        }
+      });
   }
 
   loadFaecher() {
@@ -56,10 +68,5 @@ export class HeaderComponent implements OnInit {
         console.error('Fehler beim Laden der Fächer:', error);
       }
     });
-  }
-
-  logout() {
-    this.authService.setLoginStatus(false);
-    window.location.reload();
   }
 }
