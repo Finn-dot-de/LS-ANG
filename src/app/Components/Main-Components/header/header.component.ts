@@ -33,11 +33,7 @@ export class HeaderComponent implements OnInit {
   selectedValue2 = 'Übungen';
   selectedValue3 = 'Lernfortschritt';
 
-<<<<<<< HEAD
-  constructor(private authService: AuthService, private fachService: FachService, private http: HttpClient) { }
-=======
-  constructor(private fachService: FachService) { }
->>>>>>> 27292981fe9ba48a831d58cee868be451caaf4b4
+  constructor(private fachService: FachService, private http: HttpClient) { }
 
   ngOnInit() {
     this.loadFaecher();
@@ -72,11 +68,4 @@ export class HeaderComponent implements OnInit {
       }
     });
   }
-<<<<<<< HEAD
-=======
-
-  logout() {
-    window.location.reload();
-  }
->>>>>>> 27292981fe9ba48a831d58cee868be451caaf4b4
 }
