@@ -1,11 +1,13 @@
 import {Routes} from "@angular/router";
-import {SchnelluebungComponent} from "../sites/LernSeiten/schnelluebung/schnelluebung.component";
-import {IntensiveuebungenComponent} from "../sites/LernSeiten/intensiveuebungen/intensiveuebungen.component";
-import {MischuebungenComponent} from "../sites/LernSeiten/mischuebungen/mischuebungen.component";
 import {LangzeitComponent} from "../sites/Statistik/langzeit/langzeit.component";
 import {NochzuebenComponent} from "../sites/Statistik/nochzueben/nochzueben.component";
-import {EigeneuebungenComponent} from "../sites/LernSeiten/eigeneuebungen/eigeneuebungen.component";
-import {NormaluebungenComponent} from "../sites/LernSeiten/normaluebungen/normaluebungen.component";
+import {SchnelluebungComponent} from "../sites/utils/schnelluebung/schnelluebung.component";
+import {IntensiveuebungenComponent} from "../sites/utils/intensiveuebungen/intensiveuebungen.component";
+import {MischuebungenComponent} from "../sites/utils/mischuebungen/mischuebungen.component";
+import {EigeneuebungenComponent} from "../sites/utils/eigeneuebungen/eigeneuebungen.component";
+import {NormaluebungenComponent} from "../sites/utils/normaluebungen/normaluebungen.component";
+import {StoffseiteComponent} from "../sites/LernSeiten/stoffseite/stoffseite.component";
+
 
 export const routes: Routes = [
   {path: 'schnelluebung', component: SchnelluebungComponent},
@@ -15,4 +17,5 @@ export const routes: Routes = [
   {path: 'nochzueben', component: NochzuebenComponent},
   {path: 'eigeneuebungen', component: EigeneuebungenComponent},
   {path: 'normaluebungen', component: NormaluebungenComponent},
+  {path: 'mischuebungen', component: MischuebungenComponent},
 ];
