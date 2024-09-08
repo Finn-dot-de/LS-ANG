@@ -14,13 +14,13 @@ import { HttpClient } from "@angular/common/http";
   imports: [DropdownComponent],
 })
 export class HeaderComponent implements OnInit {
-  logoutLink: string = '';  // Initialisiert mit einem leeren String
+  logoutLink: string = '';
   options1: { name: string, link: string }[] = [];
   options2 = [
-    { name: 'Schnellübung', link: '/schnelluebung' },
+   // { name: 'Schnellübung', link: '/schnelluebung' },
     { name: 'Normale Übung', link: '/normaluebungen' },
-    { name: 'Intensiveübungen', link: '/intensiveuebungen' },
-    { name: 'Mischübungen', link: '/mischuebungen' },
+   // { name: 'Intensiveübungen', link: '/intensiveuebungen' },
+   // { name: 'Mischübungen', link: '/mischuebungen' },
   ];
 
   options3 = [
@@ -38,7 +38,7 @@ export class HeaderComponent implements OnInit {
   ngOnInit() {
     this.loadFaecher();
     // Abrufen des Links von der API
-    this.http.get<{url: string}>('/api/link')
+    this.http.get<{url: string}>('/logout/link')
       .subscribe({
         next: (response) => {
           this.logoutLink = response.url;

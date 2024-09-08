@@ -1,0 +1,12 @@
+<div>
+  <h2>Markdown-Editor für Fach: {{ fach }}</h2>
+
+  <textarea [(ngModel)]="markdownContent" rows="10" cols="80"></textarea>
+
+  <div>
+    <button (click)="savePage()">Speichern</button>
+  </div>
+
+  <h2>Vorschau</h2>
+  <markdown [data]="markdownContent"></markdown>
+</div>
