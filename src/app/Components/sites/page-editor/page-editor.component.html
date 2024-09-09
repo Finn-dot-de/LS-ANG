@@ -1,12 +1,29 @@
-<div>
-  <h2>Markdown-Editor für Fach: {{ fach }}</h2>
+<div id="editor" class="editor-container">
+  <h2>Seiteneditor für: {{ fach }}</h2>
 
-  <textarea [(ngModel)]="markdownContent" rows="10" cols="80"></textarea>
+  <!-- Prüfe, ob der Bearbeitungsmodus aktiv ist -->
+  <div *ngIf="!isEditing" class="preview-mode">
+    <!-- Vorschau-Modus -->
+    <div [innerHTML]="editorContent" class="editor-content"></div>
 
-  <div>
-    <button (click)="savePage()">Speichern</button>
+    <!-- Button, um in den Bearbeitungsmodus zu wechseln -->
+    <button class="btn btn-primary" (click)="toggleEditMode()">
+      <i class="fas fa-edit"></i> Bearbeiten
+    </button>
   </div>
 
-  <h2>Vorschau</h2>
-  <markdown [data]="markdownContent"></markdown>
+  <div *ngIf="isEditing" class="edit-mode">
+    <!-- Bearbeitungsmodus -->
+    <quill-editor [(ngModel)]="editorContent" [styles]="{height: '400px'}" class="editor-input"></quill-editor>
+
+    <!-- Speichern-Button und Abbrechen-Button -->
+    <div class="editor-actions">
+      <button class="btn btn-success" (click)="savePage()">
+        <i class="fas fa-save"></i> Speichern
+      </button>
+      <button class="btn btn-secondary" (click)="toggleEditMode()">
+        <i class="fas fa-times"></i> Abbrechen
+      </button>
+    </div>
+  </div>
 </div>

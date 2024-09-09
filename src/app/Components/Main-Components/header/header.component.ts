@@ -5,13 +5,14 @@ import { Fach } from 'src/app/Components/Services/FächerService/fach.model';  /
 import { catchError } from 'rxjs/operators';
 import { of } from 'rxjs';
 import { HttpClient } from "@angular/common/http";
+import {NgOptimizedImage} from "@angular/common";
 
 @Component({
   selector: 'app-header',
   standalone: true,
   templateUrl: './header.component.html',
   styleUrls: ['./header.component.scss'],
-  imports: [DropdownComponent],
+  imports: [DropdownComponent, NgOptimizedImage],
 })
 export class HeaderComponent implements OnInit {
   logoutLink: string = '';

@@ -8,7 +8,7 @@ import { Fach } from './fach.model';  // Import der Schnittstelle
   providedIn: 'root'
 })
 export class FachService {
-  private apiUrl = '/api/faecher';  // API-URL anpassen
+  private apiUrl = '/app/api/faecher';  // API-URL anpassen
 
   constructor(private http: HttpClient) { }
 

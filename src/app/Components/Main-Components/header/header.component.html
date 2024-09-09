@@ -1,13 +1,13 @@
 <header>
   <div class="header">
     <div class="logo">
-      <img src="../../assets/img/MainLogo.ico" alt="LernAppLogo" />
+      <img ngSrc="/app/assets/img/MainLogo.ico" alt="LernAppLogo"/>
       <h1>Lern-App</h1>
     </div>
     <div class="menu">
       <div class="logout-btn">
         <h3>Hallo</h3>
-        <a [href]="logoutLink"><img src="../../../../assets/img/logout_btn.svg" alt="Logout-btn"></a>
+        <a [href]="logoutLink"><img ngSrc="/app/assets/img/logout_btn.svg" alt="Logout-btn" height="24" width="24"></a>
       </div>
       <app-dropdown class="menu_drp" [options]="options1" [selectedValue]="selectedValue1"></app-dropdown>
       <app-dropdown class="menu_drp" [options]="options2" [selectedValue]="selectedValue2"></app-dropdown>

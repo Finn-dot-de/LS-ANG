@@ -6,7 +6,7 @@ import {IntensiveuebungenComponent} from "../sites/utils/intensiveuebungen/inten
 import {MischuebungenComponent} from "../sites/utils/mischuebungen/mischuebungen.component";
 import {EigeneuebungenComponent} from "../sites/utils/eigeneuebungen/eigeneuebungen.component";
 import {NormaluebungenComponent} from "../sites/utils/normaluebungen/normaluebungen.component";
-import {StoffseiteComponent} from "../sites/LernSeiten/stoffseite/stoffseite.component";
+import {PageEditorComponent} from "../sites/page-editor/page-editor.component";
 
 
 export const routes: Routes = [
@@ -18,4 +18,5 @@ export const routes: Routes = [
   {path: 'eigeneuebungen', component: EigeneuebungenComponent},
   {path: 'normaluebungen', component: NormaluebungenComponent},
   {path: 'mischuebungen', component: MischuebungenComponent},
+  { path: ':fach', component: PageEditorComponent },
 ];

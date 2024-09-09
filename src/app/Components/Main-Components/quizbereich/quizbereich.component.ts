@@ -59,7 +59,7 @@ ngOnInit() {
 
   // Die getFragen-Methode, die eine HTTP-GET-Anfrage an die angegebene URL sendet und ein Observable zurückgibt
   getFragen() {
-    return this.http.get<any[]>('/api/fragen');
+    return this.http.get<any[]>('/app/api/fragen');
   }
 
   // Die selectAnswer-Methode, die aufgerufen wird, wenn auf ein <li>-Element geklickt wird

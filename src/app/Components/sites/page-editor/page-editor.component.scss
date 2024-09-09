@@ -1,0 +1,108 @@
+// Variablen
+$primary-color: #007bff;
+$primary-hover: darken($primary-color, 10%);
+$success-color: #28a745;
+$success-hover: darken($success-color, 10%);
+$secondary-color: #6c757d;
+$secondary-hover: darken($secondary-color, 10%);
+$font-family: 'Roboto', sans-serif;
+$background-color: #f5f5f5;
+$box-shadow-color: rgba(0, 0, 0, 0.1);
+$border-color: #ddd;
+
+// Mixin für Buttons
+@mixin button-styles($bg-color, $hover-color) {
+  display: inline-flex;
+  align-items: center;
+  padding: 10px 20px;
+  font-size: 16px;
+  font-weight: 500;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  color: #fff;
+  background-color: $bg-color;
+  transition: background-color 0.3s ease;
+
+  &:hover {
+    background-color: $hover-color;
+  }
+
+  i {
+    margin-right: 8px;
+  }
+}
+
+// Allgemeine Stile
+body {
+  font-family: $font-family;
+  background-color: $background-color;
+  color: #333;
+  margin: 0;
+  padding: 0;
+}
+
+.editor-container {
+  max-width: 800px;
+  margin: 50px auto;
+  background-color: #fff;
+  border-radius: 10px;
+  box-shadow: 0 4px 6px $box-shadow-color;
+  padding: 20px;
+}
+
+h2 {
+  color: $primary-color;
+  text-align: center;
+  margin-bottom: 20px;
+}
+
+.editor-content {
+  padding: 20px;
+  border: 1px solid $border-color;
+  background-color: #fafafa;
+  border-radius: 10px;
+  min-height: 200px;
+  margin-bottom: 20px;
+}
+
+.editor-input {
+  border: 1px solid $border-color;
+  border-radius: 10px;
+}
+
+// Flexbox für die Aktionsbuttons
+.editor-actions {
+  margin-top: 20px;
+  display: flex;
+  justify-content: space-between;
+}
+
+// Button-Stile
+.btn-primary {
+  @include button-styles($primary-color, $primary-hover);
+}
+
+.btn-success {
+  @include button-styles($success-color, $success-hover);
+}
+
+.btn-secondary {
+  @include button-styles($secondary-color, $secondary-hover);
+}
+
+// Mobile Anpassungen
+@media (max-width: 768px) {
+  .editor-container {
+    padding: 15px;
+  }
+
+  .btn {
+    width: 100%;
+    margin-bottom: 10px;
+  }
+
+  .editor-actions {
+    flex-direction: column;
+  }
+}
