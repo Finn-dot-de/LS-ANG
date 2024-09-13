@@ -8,6 +8,7 @@ import {FooterComponent} from "./Components/Main-Components/footer/footer.compon
 import {HeaderComponent} from "./Components/Main-Components/header/header.component";
 import {QuizbereichComponent} from "./Components/Main-Components/quizbereich/quizbereich.component";
 import {PageEditorComponent} from "./Components/sites/page-editor/page-editor.component";
+import {QuillModule} from "ngx-quill";
 
 @NgModule({
   declarations: [
@@ -18,7 +19,8 @@ import {PageEditorComponent} from "./Components/sites/page-editor/page-editor.co
     FormsModule,
     FooterComponent,
     HeaderComponent,
-    QuizbereichComponent, PageEditorComponent
+    QuizbereichComponent, PageEditorComponent,
+    QuillModule.forRoot()
   ],
     providers: [provideHttpClient(withInterceptorsFromDi())],
     schemas: [CUSTOM_ELEMENTS_SCHEMA]
