@@ -1,5 +1,5 @@
 <div id="editor" class="editor-container">
-  <h2>Seiteneditor für: {{ fach }}</h2>
+  <h2>{{ fach.toUpperCase() }}</h2>
 
   <!-- Prüfe, ob der Bearbeitungsmodus aktiv ist -->
   <div *ngIf="!isEditing" class="preview-mode">
