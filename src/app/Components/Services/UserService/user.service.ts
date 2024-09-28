@@ -8,11 +8,11 @@ import { catchError } from 'rxjs/operators'; // Importiert catchError, um Fehler
  * Dies erleichtert die Typensicherheit und die Arbeit mit Benutzerdaten im Service.
  */
 export interface User {
-  id: number;           // Die eindeutige ID des Benutzers
-  vorname: string;      // Der Vorname des Benutzers
-  nachname: string;     // Der Nachname des Benutzers
-  rolle: string;        // Die Rolle des Benutzers (z.B. 'admin', 'lehrer')
-  userkuerzel: string;
+  Id: number;           // Die eindeutige ID des Benutzers
+  Vorname: string;      // Der Vorname des Benutzers
+  Nachname: string;     // Der Nachname des Benutzers
+  Rolle: string;        // Die Rolle des Benutzers
+  Userkuerzel: string;
 }
 
 /**
