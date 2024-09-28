@@ -1,27 +1,22 @@
 <div id="editor" class="editor-container">
   <h2>{{ fach.toUpperCase() }}</h2>
 
-  <!-- Prüfe, ob der Bearbeitungsmodus aktiv ist -->
   <div *ngIf="!isEditing" class="preview-mode">
-    <!-- Vorschau-Modus -->
     <div [innerHTML]="editorContent" class="editor-content"></div>
 
-    <!-- Button, um in den Bearbeitungsmodus zu wechseln -->
     <button class="btn btn-primary" (click)="toggleEditMode()">
       <i class="fas fa-edit"></i> Bearbeiten
     </button>
   </div>
 
   <div *ngIf="isEditing" class="edit-mode">
-    <!-- Bearbeitungsmodus -->
     <quill-editor [(ngModel)]="editorContent" [styles]="{height: '400px'}" class="editor-input"></quill-editor>
 
-    <!-- Speichern-Button und Abbrechen-Button -->
     <div class="editor-actions">
-      <button class="btn btn-success" (click)="savePage()">
+      <button *ngIf="canShowSaveButton()" class="btn btn-success" (click)="savePage()">
         <i class="fas fa-save"></i> Speichern
       </button>
-      <button class="btn btn-secondary" (click)="toggleEditMode()">
+      <button *ngIf="canShowSaveButton()" class="btn btn-secondary" (click)="toggleEditMode()">
         <i class="fas fa-times"></i> Abbrechen
       </button>
     </div>
