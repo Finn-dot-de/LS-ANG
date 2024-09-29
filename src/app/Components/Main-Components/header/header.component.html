@@ -5,15 +5,15 @@
       <h1>Lern-App</h1>
     </div>
     <div class="menu">
-      <div class="logout-btn">
-        <h3>Hallo, {{ username }}</h3> <!-- Zeigt den Benutzernamen neben "Hallo" an -->
-        <a [href]="logoutLink">
-          <img src="/app/assets/img/logout_btn.svg" alt="Logout-btn" height="24" width="24">
-        </a>
-      </div>
       <app-dropdown class="menu_drp" [options]="options1" [selectedValue]="selectedValue1"></app-dropdown>
       <app-dropdown class="menu_drp" [options]="options2" [selectedValue]="selectedValue2"></app-dropdown>
       <app-dropdown class="menu_drp" [options]="options3" [selectedValue]="selectedValue3"></app-dropdown>
+    </div>
+    <div class="logout-btn">
+      <h3>Hallo, {{ username }}</h3> <!-- Zeigt den Benutzernamen neben "Hallo" an -->
+      <a [href]="logoutLink">
+        <img src="/app/assets/img/logout_btn.svg" alt="Logout-btn" height="24" width="24">
+      </a>
     </div>
   </div>
 </header>
