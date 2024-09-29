@@ -59,16 +59,17 @@ export class PageEditorComponent implements OnInit {
    */
   loadPage(): void {
     this.pageService.loadPage(this.fach).subscribe({
-      next: (response: { content: string; }) => {
-        this.editorContent = response.content;  // Zeigt den abgerufenen Inhalt im Editor an
+      next: (content: string) => {
+        this.editorContent = content;  // Setzt den abgerufenen Text in den Editor
       },
       error: (error: any) => {
         console.error('Fehler beim Laden der Seite', error);
-        // Prüft, ob der Fehler ein 404 ist, was bedeutet, dass die Seite nicht existiert
         if (error.status === 404) {
           alert('Seite nicht gefunden. Erstelle eine neue Seite.');
-          this.editorContent = '';  // Leert den Editor, damit eine neue Seite erstellt werden kann
-          this.isEditing = true;  // Schaltet in den Bearbeitungsmodus
+          this.editorContent = '';  // Leert den Editor für eine neue Seite
+          if (this.canUserUse()) {
+            this.isEditing = true;  // Schaltet den Bearbeitungsmodus ein
+          }
         }
       }
     });
@@ -109,11 +110,11 @@ export class PageEditorComponent implements OnInit {
   }
 
   /**
-   * Prüft, ob der Speichern-Button angezeigt werden soll.
+   * Prüft, ob der der Nutzerberechtigt ist.
    * Der Button wird nur angezeigt, wenn die Benutzerrolle 'admin' oder 'lehrer' ist.
    * @returns true, wenn der Benutzer die Rolle 'admin' oder 'lehrer' hat, sonst false
    */
-  canShowSaveButton(): boolean {
+  canUserUse(): boolean {
     return this.userRole === 'admin' || this.userRole === 'lehrer'; // Überprüft die Benutzerrolle
   }
 }

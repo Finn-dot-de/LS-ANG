@@ -1,6 +1,6 @@
 import { HttpClient } from '@angular/common/http'; // Importiert HttpClient, um HTTP-Anfragen zu machen
 import { Injectable } from '@angular/core'; // Importiert Injectable, um die Klasse als Service zu kennzeichnen
-import { Observable } from 'rxjs'; // Importiert Observable, um reaktive Programmierung zu unterstützen
+import {map, Observable} from 'rxjs'; // Importiert Observable, um reaktive Programmierung zu unterstützen
 
 /**
  * PageService stellt Methoden bereit, um Seiteninhalte von der API zu laden und zu speichern.
@@ -26,8 +26,15 @@ export class PageService {
    */
   loadPage(fach: string): Observable<any> {
     // Sendet eine GET-Anfrage an die API mit dem Fach als Parameter
-    return this.http.get<any>(`${this.apiUrl}/getfile?id=${fach}`);
+    return this.http.get<any>(`${this.apiUrl}/getlernsite?titel=${fach}`).pipe(
+      // Wir nutzen map, um nur den relevanten 'text' Inhalt aus der Antwort zu extrahieren
+      map((response: { text: any; }) => {
+        console.log(response); // Zeigt die vollständige API-Antwort in der Konsole an
+        return response.text; // Extrahiert das 'text'-Feld aus der API-Antwort
+      })
+    );
   }
+
 
   /**
    * Speichert den Inhalt einer Seite.
@@ -38,7 +45,10 @@ export class PageService {
    */
   savePage(fach: string, content: string): Observable<any> {
     // Erstellt das Payload-Objekt mit dem Fach und dem Seiteninhalt
-    const payload = { id: fach, content: content };
+    const payload = {
+      Titel: fach,
+      Text: content
+    };
     // Sendet eine POST-Anfrage an die API, um den Inhalt zu speichern; mitCredentials sorgt dafür, dass Cookies gesendet werden
     return this.http.post<any>(`${this.apiUrl}/save/lerning/site`, payload, { withCredentials: true });
   }

@@ -13,10 +13,10 @@
     <quill-editor [(ngModel)]="editorContent" [styles]="{height: '400px'}" class="editor-input"></quill-editor>
 
     <div class="editor-actions">
-      <button *ngIf="canShowSaveButton()" class="btn btn-success" (click)="savePage()">
+      <button *ngIf="canUserUse()" class="btn btn-success" (click)="savePage()">
         <i class="fas fa-save"></i> Speichern
       </button>
-      <button *ngIf="canShowSaveButton()" class="btn btn-secondary" (click)="toggleEditMode()">
+      <button *ngIf="canUserUse()" class="btn btn-secondary" (click)="toggleEditMode()">
         <i class="fas fa-times"></i> Abbrechen
       </button>
     </div>
